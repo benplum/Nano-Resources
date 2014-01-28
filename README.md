@@ -1,4 +1,4 @@
 Nano-Resources
 ==============
 
-Pico Plugin for JS and CSS resource handling.
+Pico Plugin for handling JS and CSS resources.
