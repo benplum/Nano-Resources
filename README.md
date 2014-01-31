@@ -10,62 +10,71 @@ Start by moving the <code>plugins/nano_resources.php</code> file and <code>vendo
 
 ### Configuration
 
-<pre><code>$config["nano_resources"] = array(
-	"css" => array(
-		/**
-		 *	An array of files to generate. For example, "site" will produce
-		 *	"site.css" file available at http://site.com/css/site.css
-		 */
-		"files" => array(
+	$config["nano_resources"] = array(
+		"css" => array(
 			/**
-			 *	Each file must contain an array of the source files to 
-			 *	combine, relative to the current theme's directory. 
+			 *	An array of files to generate. For example, "site" will produce
+			 *	"site.css" file available at http://site.com/css/site.css
 			 */
-			"site" => array(
-				"main.css"
-			)
-		),
-		/**
-		 *	An array of key->value pairs to replace on render. For example
-		 *	"key" will replace all instances of '$key' with "value".
-		 */
-		"vars" => array(
-			"key" => "value"
-		),
-		/**
-		 *	Flag to minify output
-		 */
-		"minify" => true
-	),
-	"js" => array(
-		/**
-		 *	An array of files to generate. For example, "site" will produce
-		 *	"site.js" file available at http://site.com/js/site.js
-		 */
-		"files" => array(
+			"files" => array(
+				/**
+				 *	An array of the source files to combine, relative to the
+				 *	current theme's directory. 
+				 */
+				"site" => array(
+					"reset.css",
+					"main.css"
+				)
+			),
 			/**
-			 *	Each file must contain an array of the source files to 
-			 *	combine, relative to the current theme's directory. 
+			 *	An array of key->value pairs to replace on render. For example
+			 *	"key" will replace all instances of '$key' with "value".
 			 */
-			"site" => array(
-				"library.js",
-				"main.js"
-			)
+			"vars" => array(
+				"key" => "value"
+			),
+			/**
+			 *	Flag to minify output
+			 */
+			"minify" => true
+		),
+		"js" => array(
+			/**
+			 *	An array of files to generate. For example, "site" will produce
+			 *	"site.js" file available at http://site.com/js/site.js
+			 */
+			"files" => array(
+				/**
+				 *	An array of the source files to combine, relative to the
+				 *	current theme's directory. 
+				 */
+				"site" => array(
+					"library.js",
+					"main.js"
+				)
+			),
+			/**
+			 *	An array of key->value pairs to replace on render. For example
+			 *	"key" will replace all instances of '$key' with "value".
+			 */
+			"vars" => array(
+				"key" => "value"
+			),
+			/**
+			 *	Flag to minify output
+			 */
+			"minify" => true
 		),
 		/**
-		 *	An array of key->value pairs to replace on render. For example
-		 *	"key" will replace all instances of '$key' with "value".
+		 *	Flag to ignore caching and force re-render
 		 */
-		"vars" => array(
-			"key" => "value"
-		),
-		/**
-		 *	Flag to minify output
-		 */
-		"minify" => true
-	),
-	/**
-	 *	Flag to ignore caching and force re-render
-	 */
-	"debug" => false
-);</code></pre>
+		"debug" => false
+	);
+
+### Usage
+
+Once defined, you can request the resources relative to their type and filename:
+
+	http://site.com/css/site.css
+	
+	http://site.com/js/site.js
